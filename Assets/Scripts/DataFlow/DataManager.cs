@@ -1,5 +1,6 @@
 ﻿using DataTypes;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Assets.Scripts.DataFlow
     {
         private readonly IDataSerializer<T, U> _serializer;
         private readonly Dictionary<int, T> _objects = new Dictionary<int, T>();
-        private static string directoryPath = Application.persistentDataPath + "/data/";
+        private static string directoryPath = Application.persistentDataPath + "/data/test.json";
 
         public event UnityAction<T> ObjectAdded;
         public event UnityAction<T> ObjectRemoved;
@@ -46,8 +47,25 @@ namespace Assets.Scripts.DataFlow
         {
             ObjectChanged?.Invoke(obj as T);
         }
+
+        public void Save()
+        {
+            Save(_objects, directoryPath);
+        }
+
+        public void Load()
+        {
+            Load(directoryPath);
+        }
+
         public void Save(Dictionary<int, T> dataObjects, string filePath)
         {
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
+
+
             var data = new Dictionary<string, string>();
             foreach (var pair in dataObjects)
             {
@@ -55,7 +73,6 @@ namespace Assets.Scripts.DataFlow
                 var dataObject = pair.Value;
                 data[id.ToString()] = _serializer.Serialize(dataObject);
             }
-
             var json = JsonConvert.SerializeObject(data, Formatting.Indented);
             File.WriteAllText(filePath, json);
         }
