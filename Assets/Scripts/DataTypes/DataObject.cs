@@ -4,24 +4,33 @@ using System;
 using System.IO;
 using System.Linq.Expressions;
 using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace DataTypes
 {
-    public abstract class DataObject<T> : ScriptableObject where T : class
+    [CreateAssetMenu(fileName = "NewDataObject", menuName = "Data Object")]
+    public class DataObject<TProperties> : ScriptableObject where TProperties : class
     {
         [SerializeField] private ID id = new();
-        [SerializeField] private T properties;
-        public UnityEvent<DataObject<T>> Changed; // Event that triggers when this object is updated
-
-        public DataObject(ID id)
+        [SerializeField] private TProperties properties;
+        public UnityEvent<DataObject<TProperties>> Changed; // Event that triggers when this object is updated
+        public static new T CreateInstance<T>() where T : DataObject<TProperties>, new()
         {
-            Id = id;
-            Properties = Activator.CreateInstance<T>();
+            var obj = ScriptableObject.CreateInstance<T>();
+            obj.Initialize();
+            return obj;
         }
 
-        public T Properties
+        public void Initialize()
+        {
+            Properties = Activator.CreateInstance<TProperties>();
+            Changed = new UnityEvent<DataObject<TProperties>>();
+        }
+
+
+        public TProperties Properties
         {
             get { return properties; }
             set { properties = value; }
@@ -38,7 +47,7 @@ namespace DataTypes
             Changed.Invoke(this);
         }
 
-        public virtual U GetProperty<U>(Expression<Func<T, Property<U>>> propertyExpression)
+        public virtual U GetProperty<U>(Expression<Func<TProperties, Property<U>>> propertyExpression)
         {
             if (propertyExpression.Body is MemberExpression memberExpression)
             {
@@ -51,7 +60,7 @@ namespace DataTypes
             return default;
         }
 
-        public virtual void SetProperty<U>(Expression<Func<T, Property<U>>> propertyExpression, U value)
+        public virtual void SetProperty<U>(Expression<Func<TProperties, Property<U>>> propertyExpression, U value)
         {
             if (propertyExpression.Body is MemberExpression memberExpression)
             {
@@ -75,6 +84,11 @@ namespace DataTypes
         public virtual void Deserialize(string json)
         {
             JsonUtility.FromJsonOverwrite(json, this);
+        }
+
+        public override string ToString()
+        {
+            return JsonUtility.ToJson(this, true);
         }
     }
 }

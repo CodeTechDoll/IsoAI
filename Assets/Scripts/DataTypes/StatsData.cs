@@ -5,7 +5,7 @@ namespace Assets.Scripts.DataTypes
 {
     public class StatsData : DataObject<StatsProperties>
     {
-        public StatsData(ID id) : base(id)
+        public StatsData()
         {
             Properties = new StatsProperties();
         }

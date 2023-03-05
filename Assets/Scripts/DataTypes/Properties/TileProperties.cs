@@ -20,4 +20,37 @@ namespace Assets.Scripts.DataTypes.Properties
             TileSprite = new Property<Sprite>();
         }
     }
+
+    
+    /**
+  "Changed": null,
+  "Properties": {
+    "Position": {
+      "Value": {
+        "x": 1.0,
+        "y": 2.0,
+        "z": 3.0
+      }
+    },
+    "Height": {
+    "Value": 10
+    },
+    "Visible": {
+    "Value": true
+    },
+    "Passable": {
+    "Value": false
+    },
+    "TileSprite": {
+    "Value": null
+    }
+  },
+  "Id": {
+    "Value": 2
+  },
+  "name": "",
+  "hideFlags": 0
+   
+}
+    */
 }

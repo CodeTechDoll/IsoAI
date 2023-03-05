@@ -7,7 +7,7 @@ namespace Assets.Scripts.DataTypes
 {
     public class ItemData : DataObject<ItemProperties>
     {
-        public ItemData(ID id) : base(id)
+        public ItemData()
         {
         }
     }

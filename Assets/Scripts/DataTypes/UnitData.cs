@@ -7,8 +7,9 @@ namespace Assets.Scripts.DataTypes
 {
     public class UnitData : DataObject<UnitProperties>
     {
-        public UnitData(ID id) : base(id)
+        public UnitData() :base()
         {
+            Initialize();
         }
     }
 }
