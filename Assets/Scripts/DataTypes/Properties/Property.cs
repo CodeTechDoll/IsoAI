@@ -3,9 +3,19 @@
 namespace Assets.Scripts.DataTypes.Properties
 {
     [Serializable]
-    public struct Property<T>
+    public class Property<T>
     {
         public T Value { get; set; }
+        public Property()
+        {
+            Value = default(T);
+        }
+
+        public Property(T value)
+        {
+            Value = value;
+        }
+
         public static implicit operator T(Property<T> property)
         {
             return property.Value;

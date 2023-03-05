@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using UnityEngine;
 
 namespace Assets.Scripts.DataTypes.Properties
 {
@@ -10,11 +8,13 @@ namespace Assets.Scripts.DataTypes.Properties
         public Property<int> Health;
         public Property<int> Mana;
         public Property<int> Lewdness;
+        public Property<int> Strength;
 
         public StatsProperties() {
             Health = new Property<int>();
             Mana = new Property<int>();
             Lewdness = new Property<int>();
+            Strength = new Property<int>(10);
         }
     }
 }

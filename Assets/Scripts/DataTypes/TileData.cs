@@ -2,9 +2,6 @@ using Assets.Scripts.DataTypes.Properties;
 
 namespace DataTypes
 {
-    using System.Linq.Expressions;
-    using System.Reflection;
-    using System;
     using UnityEngine;
 
     [CreateAssetMenu(fileName = "NewTileData", menuName = "TileData")]
