@@ -1,0 +1,1 @@
+"This project uses the Zenject library, which is licensed under the MIT license. A copy of the license can be found in the Licenses directory of this project. For more information about Zenject, please visit the library's GitHub repository at https://github.com/modesttree/Zenject."

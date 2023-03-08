@@ -9,6 +9,7 @@
 **/[Bb]uilds/
 **/[Ll]ogs/
 **/[Uu]ser[Ss]ettings/
+**/[Pp]lugins/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -79,4 +80,4 @@ crashlytics-build.properties
 # except build/, which is used as an MSBuild target.
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
-#!**/packages/repositories.config
+!**/packages/repositories.config
