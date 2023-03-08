@@ -1,13 +1,12 @@
 ﻿using Assets.Scripts.DataTypes.Properties;
 using System;
-using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.Components
 {
     public class TransformComponent : YComponent
     {
-        Property<Transform> Transform;
+        readonly Property<Transform> Transform;
 
         public TransformComponent()
         {

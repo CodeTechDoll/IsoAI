@@ -1,16 +1,13 @@
 ﻿using Assets.Scripts.Components;
 using Assets.Scripts.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
-using UnityEngine;
 
 namespace Assets.Scripts.Systems
 {
     public class MessageSystem : BaseSystem
     {
-        private Dictionary<string, List<MessageableComponent>> messageHandlers = new Dictionary<string, List<MessageableComponent>>();
-        private Queue<Message> messageQueue = new Queue<Message>();
+        private readonly Dictionary<string, List<MessageableComponent>> messageHandlers = new Dictionary<string, List<MessageableComponent>>();
+        private readonly Queue<Message> messageQueue = new Queue<Message>();
 
         public void SendMessage(Entity sender, Entity recipient, string messageType, object data)
         {
@@ -55,7 +52,7 @@ namespace Assets.Scripts.Systems
                         handlers = new List<MessageableComponent>();
                         messageHandlers[messageType] = handlers;
                     }
-                    handlers.Add(component as MessageableComponent);
+                    handlers.Add(component);
                 }
             }
         }
@@ -69,7 +66,7 @@ namespace Assets.Scripts.Systems
                 {
                     if (messageHandlers.TryGetValue(messageType, out var handlers))
                     {
-                        handlers.Remove(component as MessageableComponent);
+                        _ = handlers.Remove(component);
                     }
                 }
             }

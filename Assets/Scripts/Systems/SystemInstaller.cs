@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using UnityEditor;
-using UnityEngine;
-using Zenject;
+﻿using Zenject;
 
 namespace Assets.Scripts.Systems
 {
@@ -9,7 +6,7 @@ namespace Assets.Scripts.Systems
     {
         public override void InstallBindings()
         {
-            Container.Bind<SystemManager>()
+            _ = Container.Bind<SystemManager>()
                 .FromComponentInHierarchy()
                 .AsSingle();
         }

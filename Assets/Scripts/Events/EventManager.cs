@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System;
-using UnityEditor;
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.Events
 {
@@ -9,7 +7,7 @@ namespace Assets.Scripts.Events
     {
         public static EventManager Instance { get; private set; }
 
-        private Dictionary<Type, List<Action<object>>> subscribers;
+        private readonly Dictionary<Type, List<Action<object>>> subscribers;
 
         private EventManager()
         {
@@ -35,7 +33,7 @@ namespace Assets.Scripts.Events
         {
             if (subscribers.TryGetValue(typeof(T), out var actions))
             {
-                actions.Remove(obj => action((T)obj));
+                _ = actions.Remove(obj => action((T)obj));
             }
         }
 

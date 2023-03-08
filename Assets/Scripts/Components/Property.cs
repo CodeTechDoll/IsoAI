@@ -8,7 +8,7 @@ namespace Assets.Scripts.DataTypes.Properties
         public T Value { get; set; }
         public Property()
         {
-            Value = default(T);
+            Value = default;
         }
 
         public Property(T value)

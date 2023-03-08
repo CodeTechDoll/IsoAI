@@ -1,19 +1,19 @@
-﻿using NUnit.Framework;
-using Assets.Scripts.Components;
+﻿using Assets.Scripts.Components;
+using NUnit.Framework;
 using System;
 
 
 namespace Assets.tests.Editor
 {
-   
+
     public class ComponentTypeHelperTests
     {
         [Test]
         public void GetComponentIndex_ReturnsCorrectIndex()
         {
             // Arrange
-            var componentType1 = typeof(Component1);
-            var componentType2 = typeof(Component2);
+            _ = typeof(Component1);
+            _ = typeof(Component2);
 
             // Act
             var index1 = ComponentTypeHelper.GetComponentIndex<Component1>();
@@ -28,7 +28,7 @@ namespace Assets.tests.Editor
         public void GetComponentIndex_ReturnsSameIndexForSameComponentType()
         {
             // Arrange
-            var componentType = typeof(Component1);
+            _ = typeof(Component1);
 
             // Act
             var index1 = ComponentTypeHelper.GetComponentIndex<Component1>();
@@ -42,8 +42,8 @@ namespace Assets.tests.Editor
         public void GetComponentIndex_AddsNewComponentType()
         {
             // Arrange
-            var componentType1 = typeof(Component1);
-            var componentType2 = typeof(Component2);
+            _ = typeof(Component1);
+            _ = typeof(Component2);
 
             // Act
             var index1 = ComponentTypeHelper.GetComponentIndex<Component1>();
@@ -63,7 +63,7 @@ namespace Assets.tests.Editor
             Type componentType = null;
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => ComponentTypeHelper.GetComponentIndex(componentType));
+            _ = Assert.Throws<ArgumentNullException>(() => ComponentTypeHelper.GetComponentIndex(componentType));
         }
 
         private class Component1 : YComponent { }

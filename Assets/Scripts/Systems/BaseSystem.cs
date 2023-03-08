@@ -1,10 +1,9 @@
 ﻿using Assets.Scripts.Entities;
-using System.Collections.Generic;
 using System;
-using UnityEditor;
+using System.Collections.Generic;
 using UnityEngine;
-using YComponent = Assets.Scripts.Components.YComponent;
 using Zenject;
+using YComponent = Assets.Scripts.Components.YComponent;
 
 namespace Assets.Scripts.Systems
 {

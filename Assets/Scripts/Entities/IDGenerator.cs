@@ -1,7 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Assets.Scripts.Entities
+﻿namespace Assets.Scripts.Entities
 {
     public class IDGenerator
     {

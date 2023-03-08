@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.Systems
@@ -9,7 +8,7 @@ namespace Assets.Scripts.Systems
     public class SystemManager : MonoBehaviour
     {
         // Store systems as a dictionary for faster access
-        private Dictionary<Type, BaseSystem> systems = new Dictionary<Type, BaseSystem>();
+        private readonly Dictionary<Type, BaseSystem> systems = new Dictionary<Type, BaseSystem>();
 
         // Use generics to ensure type safety when registering systems
         public void RegisterSystem<T>(T system) where T : BaseSystem
@@ -20,7 +19,7 @@ namespace Assets.Scripts.Systems
         // Use generics to ensure type safety when unregistering systems
         public void UnregisterSystem<T>(T system) where T : BaseSystem
         {
-            systems.Remove(typeof(T));
+            _ = systems.Remove(typeof(T));
         }
 
         // Use generics to ensure type safety when getting systems

@@ -1,7 +1,5 @@
 ﻿using Assets.Scripts.DataTypes.Properties;
 using NUnit.Framework;
-using UnityEditor;
-using UnityEngine;
 
 namespace Assets.tests.Editor
 {
@@ -17,8 +15,10 @@ namespace Assets.tests.Editor
         [Test]
         public void Value_Can_Be_Set_And_Retrieved()
         {
-            var property = new Property<int>();
-            property.Value = 42;
+            var property = new Property<int>
+            {
+                Value = 42
+            };
             Assert.AreEqual(42, property.Value);
         }
 

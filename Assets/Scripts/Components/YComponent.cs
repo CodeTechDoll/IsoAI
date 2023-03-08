@@ -1,6 +1,4 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.Systems;
-using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.Components

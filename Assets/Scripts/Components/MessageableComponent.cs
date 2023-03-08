@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.Entities;
 using Assets.Scripts.Systems;
 using System.Collections.Generic;
-using UnityEditor;
 using Zenject;
 
 namespace Assets.Scripts.Components
@@ -9,7 +8,7 @@ namespace Assets.Scripts.Components
     public class MessageableComponent : YComponent
     {
         [Inject]
-        private SystemManager systemManager;
+        private readonly SystemManager systemManager;
 
         public virtual IEnumerable<string> GetHandledMessageTypes()
         {

@@ -1,6 +1,4 @@
 ﻿using Assets.Scripts.DataTypes.Properties;
-using UnityEditor;
-using UnityEngine;
 
 namespace Assets.Scripts.Components
 {

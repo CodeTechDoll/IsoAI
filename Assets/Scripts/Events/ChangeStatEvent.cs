@@ -1,6 +1,4 @@
 ﻿using Assets.Scripts.Entities;
-using UnityEditor;
-using UnityEngine;
 
 namespace Assets.Scripts.Events
 {

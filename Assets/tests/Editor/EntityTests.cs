@@ -1,7 +1,6 @@
 using Assets.Scripts.Components;
 using Assets.Scripts.Entities;
 using NUnit.Framework;
-using System.Collections;
 using System.Linq;
 
 namespace Assets.Editor.Tests

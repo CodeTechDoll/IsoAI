@@ -1,15 +1,12 @@
-﻿using Assets.Scripts.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
 using YComponent = Assets.Scripts.Components.YComponent;
 
 namespace Assets.Scripts.Entities
 {
     public class Entity
     {
-        private Dictionary<Type, YComponent> components = new Dictionary<Type, YComponent>();
+        private readonly Dictionary<Type, YComponent> components = new Dictionary<Type, YComponent>();
 
         public int Id { get; private set; }
 
@@ -44,7 +41,7 @@ namespace Assets.Scripts.Entities
             if (components.TryGetValue(typeof(T), out var component))
             {
                 component.ClearEntity();
-                components.Remove(typeof(T));
+                _ = components.Remove(typeof(T));
             }
         }
 

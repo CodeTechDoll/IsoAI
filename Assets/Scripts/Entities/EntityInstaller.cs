@@ -7,8 +7,8 @@ namespace Assets.Scripts.Entities
     {
         public override void InstallBindings()
         {
-            Container.Bind<IDGenerator>().AsSingle();
-            Container.Bind<Entity>().AsSingle();
+            _ = Container.Bind<IDGenerator>().AsSingle();
+            _ = Container.Bind<Entity>().AsSingle();
         }
     }
 }

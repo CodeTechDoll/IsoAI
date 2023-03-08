@@ -1,7 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Assets.Scripts.Events
+﻿namespace Assets.Scripts.Events
 {
     public abstract class GameEvent<T>
     {
