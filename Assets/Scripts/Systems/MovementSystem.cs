@@ -28,6 +28,8 @@ namespace Assets.Scripts.Systems
         {
             // Handle the entity's new position
             // ...
+            throw new System.NotImplementedException();
+
         }
     }
 }
