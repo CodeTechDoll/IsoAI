@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Managers;
+﻿using Assets.Scripts.DataManagement;
+using Assets.Scripts.Managers;
 using Zenject;
 
 namespace Assets.Scripts.Entities
@@ -11,6 +12,8 @@ namespace Assets.Scripts.Entities
             Container.Bind<IDGenerator>().AsSingle();
             Container.Bind<Entity>().AsSingle();
             Container.Bind<EntityManager>().AsSingle();
+            Container.Bind<EntityFactory>().AsSingle();
+            Container.Bind<DataLoaderSystem>().AsSingle();
         }
     }
 }
