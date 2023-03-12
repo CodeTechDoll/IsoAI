@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.Events
 {
-    public class ChangeTurnEvent : GameEvent<(Entity Entity, int NewValue)>
+    public class ChangeTurnEvent<T> : GameEvent<(Entity Entity, string PropertyName, T NewValue)>
     {
-        public ChangeTurnEvent(Entity entity, int newValue) : base((entity, newValue))
+        public ChangeTurnEvent(Entity entity, string propertyName, T newValue) : base((entity, propertyName, newValue))
         {
         }
     }

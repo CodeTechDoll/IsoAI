@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using Assets.Scripts.Managers;
+using Zenject;
 
 namespace Assets.Scripts.Entities
 {
@@ -7,8 +8,9 @@ namespace Assets.Scripts.Entities
     {
         public override void InstallBindings()
         {
-            _ = Container.Bind<IDGenerator>().AsSingle();
-            _ = Container.Bind<Entity>().AsSingle();
+            Container.Bind<IDGenerator>().AsSingle();
+            Container.Bind<Entity>().AsSingle();
+            Container.Bind<EntityManager>().AsSingle();
         }
     }
 }

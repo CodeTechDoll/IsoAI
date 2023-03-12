@@ -10,13 +10,9 @@ namespace Assets.Scripts.Systems
     public abstract class BaseSystem : MonoBehaviour
     {
         private List<Entity> entities;
-        private SystemManager systemManager;
-
         [Inject]
-        public void Construct(SystemManager systemManager)
-        {
-            this.systemManager = systemManager;
-        }
+        protected SystemManager systemManager;
+
 
         public void RegisterEntity(Entity entity)
         {

@@ -6,13 +6,14 @@ namespace Assets.Scripts.Components
 {
     public class TransformComponent : YComponent
     {
-        readonly Property<Transform> Transform;
+        private Property<Transform> Transform;
 
-        public TransformComponent()
+        public override void OnAddedToEntity()
         {
             Transform = new Property<Transform>(null);
+            base.OnAddedToEntity();
         }
 
-        public Action<Vector3> OnPositionChanged { get; internal set; }
+        public Action<Transform> OnPositionChanged { get; internal set; }
     }
 }

@@ -9,7 +9,7 @@ namespace Assets.Scripts.Entities
         private readonly Dictionary<Type, YComponent> components = new Dictionary<Type, YComponent>();
 
         public int Id { get; private set; }
-
+        public IReadOnlyDictionary<Type, YComponent> Components => components;
         public Entity(IDGenerator idGenerator)
         {
             Id = idGenerator.GenerateID();

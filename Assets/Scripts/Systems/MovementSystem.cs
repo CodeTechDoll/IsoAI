@@ -24,12 +24,10 @@ namespace Assets.Scripts.Systems
             GetComponent<TransformComponent>(entity).OnPositionChanged -= HandlePositionChanged;
         }
 
-        private void HandlePositionChanged(Vector3 position)
+        private void HandlePositionChanged(Transform position)
         {
             // Handle the entity's new position
             // ...
-            throw new System.NotImplementedException();
-
         }
     }
 }
